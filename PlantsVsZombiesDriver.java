@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -23,6 +24,25 @@ public class PlantsVsZombiesDriver extends JComponent implements KeyListener, Mo
         height = 500;
         
         //Setting up the GUI
+        JFrame gui = new JFrame(); //This makes the gui box
+        gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Makes sure program can close
+        gui.setTitle("Learning Graphics"); //This is the title of the game, you can change it
+        gui.setPreferredSize(new Dimension(WIDTH + 5, HEIGHT + 30)); //Setting the size for gui
+        gui.setResizable(false); //Makes it so the gui cant be resized
+        gui.getContentPane().add(this); //Adding this class to the gui
+
+         /*If after you finish everything, you can declare your buttons or other things
+          *at this spot. AFTER gui.getContentPane().add(this) and BEFORE gui.pack();
+          */
+
+        gui.pack(); //Packs everything together
+        gui.setLocationRelativeTo(null); //Makes so the gui opens in the center of screen
+        gui.setVisible(true); //Makes the gui visible
+        gui.addKeyListener(this);//stating that this object will listen to the keyboard
+        gui.addMouseListener(this); //stating that this object will listen to the Mouse
+        gui.addMouseMotionListener(this); //stating that this object will acknowledge when the Mouse moves
+
+
 
     }
     //This method will acknowledge user input
@@ -37,7 +57,8 @@ public class PlantsVsZombiesDriver extends JComponent implements KeyListener, Mo
     public void paintComponent(Graphics g)
     {
         //Drawing a Blue Rectangle to be the background
-
+        g.setColor(Color.yellow);
+        g.fillRect(0, 0, width, height);
         //Drawing Hello World!! at the center of the GUI
 
         //Drawing the user-controlled rectangle
